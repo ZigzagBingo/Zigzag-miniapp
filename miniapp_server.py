@@ -83,10 +83,12 @@ def health():
 
 @app.route("/api/me", methods=["POST", "OPTIONS"])
 def get_player():
-print("Mini App connection request received")
+@app.route("/api/me", methods=["POST", "OPTIONS"])
+def get_player():
+    print("Mini App connection request received")
+
     if request.method == "OPTIONS":
         return "", 204
-
     body = request.get_json(silent=True) or {}
     init_data = body.get("initData", "")
 
