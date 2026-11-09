@@ -73,5 +73,44 @@ p { color: #bdc9d8; }
 <p style="text-align:center">ZIGZAG Multiplayer Bingo</p>
 
 </div>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<script>
+    const tg = window.Telegram.WebApp;
+
+    tg.ready();
+    tg.expand();
+
+    async function connectTelegramPlayer() {
+        try {
+            const response = await fetch(
+                "https://zigzag-miniapp-production.up.railway.app/api/me",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        initData: tg.initData
+                    })
+                }
+            );
+
+            const result = await response.json();
+
+            if (result.verified) {
+                console.log("Verified Telegram player:", result.player);
+            } else {
+                console.log("Telegram verification failed");
+            }
+        } catch (error) {
+            console.error("Connection error:", error);
+        }
+    }
+
+    if (tg.initData) {
+        connectTelegramPlayer();
+    }
+</script>
 </body>
 </html>
