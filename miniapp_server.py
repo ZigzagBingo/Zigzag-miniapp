@@ -11,7 +11,6 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-
 ALLOWED_ORIGIN = "https://zigzagbingo.github.io"
 
 
@@ -21,7 +20,6 @@ def verify_telegram_data(init_data):
 
     try:
         data = dict(parse_qsl(init_data, keep_blank_values=True))
-
         received_hash = data.pop("hash", None)
 
         if not received_hash:
@@ -78,24 +76,28 @@ def add_cors_headers(response):
 
 @app.route("/health", methods=["GET"])
 def health():
-    return jsonify({"status": "Mini App backend is running"})
+    return jsonify({
+        "status": "Mini App backend is running"
+    })
 
 
-@app.route("/api/me", methods=["POST", "OPTIONS"])
-def get_player():
 @app.route("/api/me", methods=["POST", "OPTIONS"])
 def get_player():
     print("Mini App connection request received")
 
     if request.method == "OPTIONS":
         return "", 204
+
     body = request.get_json(silent=True) or {}
     init_data = body.get("initData", "")
 
     user = verify_telegram_data(init_data)
 
     if not user:
-        return jsonify({"error": "Telegram verification failed"}), 401
+        return jsonify({
+            "verified": False,
+            "error": "Telegram verification failed"
+        }), 401
 
     return jsonify({
         "verified": True,
@@ -106,6 +108,11 @@ def get_player():
         }
     })
 
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port, debug=False)
+    app.run(
+        host="0.0.0.0",
+        port=port,
+        debug=False
+    )
