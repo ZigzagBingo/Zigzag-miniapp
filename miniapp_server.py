@@ -83,6 +83,7 @@ def health():
 
 @app.route("/api/me", methods=["POST", "OPTIONS"])
 def get_player():
+print("Mini App connection request received")
     if request.method == "OPTIONS":
         return "", 204
 
@@ -102,7 +103,6 @@ def get_player():
             "username": user.get("username", "")
         }
     })
-
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
