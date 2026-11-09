@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZIGZAG Leaderboard</title>
+<style>
+body {
+  margin: 0;
+  padding: 20px;
+  background: #081426;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+.container { max-width: 480px; margin: auto; }
+h1 { color: #f5c542; }
+.card {
+  background: #14243b;
+  padding: 20px;
+  margin: 18px 0;
+  border-radius: 15px;
+}
+.player {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #33445c;
+}
+.rank { color: #f5c542; font-size: 20px; font-weight: bold; }
+.wins { color: #aab7ca; }
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #f5c542;
+  color: #081426;
+  font-weight: bold;
+  cursor: pointer;
+}
+.muted { color: #aab7ca; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>🏆 ZIGZAG BINGO</h1>
+
+<div class="card">
+  <h2>Leaderboard</h2>
+  <p class="muted">Top Bingo Players</p>
+
+  <div class="player">
+    <span><span class="rank">🥇 1</span> Guest Player</span>
+    <span class="wins">0 wins</span>
+  </div>
+
+  <div class="player">
+    <span><span class="rank">🥈 2</span> Player 2</span>
+    <span class="wins">0 wins</span>
+  </div>
+
+  <div class="player">
+    <span><span class="rank">🥉 3</span> Player 3</span>
+    <span class="wins">0 wins</span>
+  </div>
+
+  <p class="muted">Demo rankings. Live player rankings coming soon.</p>
+</div>
+
+<button onclick="location.href='index.html'">
+  ← Back to Home
+</button>
+
+</div>
+</body>
+</html>

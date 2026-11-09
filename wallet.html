@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZIGZAG Bingo Wallet</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 20px;
+  background: #081426;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+.container { max-width: 480px; margin: auto; }
+header { display: flex; justify-content: space-between; align-items: center; }
+h1 { color: #f5c542; font-size: 23px; }
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.gold { background: #f5c542; color: #081426; }
+.dark { background: #1b2b43; color: white; }
+.back { margin: 20px 0; }
+.card {
+  background: #14243b;
+  border: 1px solid #33445c;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 15px 0;
+}
+.balance { font-size: 27px; font-weight: bold; margin: 10px 0; }
+.muted { color: #aab7ca; font-size: 13px; }
+.actions { display: flex; gap: 10px; }
+.actions button { flex: 1; }
+input, select {
+  width: 100%;
+  padding: 13px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #53647c;
+  background: #081426;
+  color: white;
+}
+.full { width: 100%; margin-top: 10px; }
+.hidden { display: none; }
+.item {
+  padding: 13px 0;
+  border-bottom: 1px solid #33445c;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>🎯 ZIGZAG BINGO</h1>
+  <span>WALLET</span>
+</header>
+
+<section id="home">
+  <div class="card">
+    <h2>My Wallet</h2>
+    <p class="muted">ETB Balance</p>
+    <div class="balance">0.00 ETB</div>
+    <hr>
+    <p class="muted">USD Balance</p>
+    <div class="balance">0.00 USD</div>
+    <p class="muted">Demonstration balances only. No real money.</p>
+  </div>
+
+  <div class="actions">
+    <button class="gold" onclick="showPage('deposit')">Deposit</button>
+    <button class="dark" onclick="showPage('withdraw')">Withdraw</button>
+  </div>
+
+  <div class="card">
+    <h3>Transaction History</h3>
+    <p class="muted">No transactions yet.</p>
+  </div>
+
+  <button class="dark full" onclick="alert('Returning to Bingo home soon.')">
+    Back to Bingo Home
+  </button>
+</section>
+
+<section id="deposit" class="hidden">
+  <button class="dark back" onclick="showPage('home')">← Back to Wallet</button>
+  <div class="card">
+    <h2>Deposit</h2>
+    <p class="muted">Choose a demonstration currency.</p>
+    <select id="depositCurrency">
+      <option value="ETB">ETB</option>
+      <option value="USD">USD</option>
+    </select>
+    <input type="number" id="depositAmount" placeholder="Enter amount">
+    <button class="gold full" onclick="demoMessage()">Continue</button>
+    <p class="muted">Real deposits are not enabled.</p>
+  </div>
+</section>
+
+<section id="withdraw" class="hidden">
+  <button class="dark back" onclick="showPage('home')">← Back to Wallet</button>
+  <div class="card">
+    <h2>Withdraw</h2>
+    <p class="muted">Choose a demonstration currency.</p>
+    <select id="withdrawCurrency">
+      <option value="ETB">ETB</option>
+      <option value="USD">USD</option>
+    </select>
+    <input type="number" id="withdrawAmount" placeholder="Enter amount">
+    <button class="gold full" onclick="demoMessage()">Continue</button>
+    <p class="muted">Real withdrawals are not enabled.</p>
+  </div>
+</section>
+
+</div>
+
+<script>
+function showPage(page) {
+  document.getElementById('home').classList.add('hidden');
+  document.getElementById('deposit').classList.add('hidden');
+  document.getElementById('withdraw').classList.add('hidden');
+  document.getElementById(page).classList.remove('hidden');
+}
+
+function demoMessage() {
+  alert('This is a demonstration only. Real payments are not enabled.');
+}
+</script>
+</body>
+</html>

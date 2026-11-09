@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZIGZAG Player Profile</title>
+<style>
+body {
+  margin: 0;
+  padding: 20px;
+  background: #081426;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+.container { max-width: 480px; margin: auto; }
+h1 { color: #f5c542; }
+.card {
+  background: #14243b;
+  padding: 20px;
+  margin: 18px 0;
+  border-radius: 15px;
+}
+.avatar {
+  width: 75px;
+  height: 75px;
+  background: #f5c542;
+  color: #081426;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  margin: auto;
+}
+.center { text-align: center; }
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.stat {
+  background: #243750;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+}
+.number { color: #f5c542; font-size: 24px; font-weight: bold; }
+.muted { color: #bdc9d8; }
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #f5c542;
+  color: #081426;
+  font-weight: bold;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>🎯 ZIGZAG BINGO</h1>
+
+<div class="card center">
+  <div class="avatar">👤</div>
+  <h2>Player Profile</h2>
+  <h3 id="playerName">Guest Player</h3>
+  <p class="muted">Telegram account connection coming soon</p>
+</div>
+
+<div class="card">
+  <h3>Player Information</h3>
+  <p>Player ID: Not connected</p>
+  <p>Username: Not connected</p>
+  <p>Membership: Standard</p>
+</div>
+
+<div class="card">
+  <h3>Game Statistics</h3>
+  <div class="stats">
+    <div class="stat">
+      <div class="number">0</div>
+      <p class="muted">Games Played</p>
+    </div>
+    <div class="stat">
+      <div class="number">0</div>
+      <p class="muted">Games Won</p>
+    </div>
+    <div class="stat">
+      <div class="number">0%</div>
+      <p class="muted">Win Rate</p>
+    </div>
+    <div class="stat">
+      <div class="number">0</div>
+      <p class="muted">Total Points</p>
+    </div>
+  </div>
+</div>
+
+<button onclick="location.href='index.html'">
+  ← Back to Home
+</button>
+
+</div>
+</body>
+</html>
