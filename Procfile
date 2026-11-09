@@ -1,0 +1,1 @@
+web: gunicorn miniapp_server:app
