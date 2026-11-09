@@ -1,79 +1,167 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ZIGZAG Multiplayer Bingo</title>
-<style>
-body {
-  margin: 0;
-  padding: 20px;
-  background: #081426;
-  color: white;
-  font-family: Arial, sans-serif;
-}
-.container { max-width: 480px; margin: auto; }
-h1 { color: #f5c542; }
-.card {
-  background: #14243b;
-  padding: 20px;
-  margin: 18px 0;
-  border-radius: 15px;
-}
-button {
-  width: 100%;
-  padding: 15px;
-  margin: 7px 0;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
-.gold { background: #f5c542; color: #081426; }
-.dark { background: #243750; color: white; }
-p { color: #bdc9d8; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101827">
+
+    <title>ZIGZAG Multiplayer Bingo</title>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #101827;
+            color: white;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: #f5c542;
+            margin-top: 25px;
+        }
+
+        .subtitle {
+            color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #1d293b;
+            border: 1px solid #34445b;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 18px;
+        }
+
+        h2 {
+            color: #f5c542;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 12px 0;
+            border: none;
+            border-radius: 10px;
+            background: #f5c542;
+            color: #101827;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .secondary {
+            background: #34445b;
+            color: white;
+        }
+
+        .status {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            background: #26364d;
+            color: #cbd5e1;
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        .footer {
+            margin-top: 30px;
+            color: #94a3b8;
+            font-size: 12px;
+        }
+    </style>
 </head>
+
 <body>
+
 <div class="container">
 
-<h1>🎯 ZIGZAG BINGO</h1>
-<p>Multiplayer Bingo Experience</p>
+    <div class="logo">ZIGZAG BINGO</div>
 
-<div class="card">
-  <h2>Play. Compete. Enjoy!</h2>
-  <p>Welcome to ZIGZAG Multiplayer Bingo.</p>
-  <button class="gold"
-    onclick="alert('Game selection coming soon!')">
-    PLAY BINGO
-  </button>
+    <p class="subtitle">
+        Multiplayer Bingo Experience
+    </p>
+
+    <div class="card">
+        <h2>Welcome to ZIGZAG</h2>
+
+        <p>
+            Play Bingo, join rooms, and follow your game progress.
+        </p>
+
+        <a class="button" href="#game">
+            PLAY BINGO
+        </a>
+
+        <a class="button secondary" href="wallet.html">
+            MY WALLET
+        </a>
+
+        <a class="button secondary" href="profile.html">
+            MY PROFILE
+        </a>
+
+        <a class="button secondary" href="leaderboard.html">
+            LEADERBOARD
+        </a>
+
+        <a class="button secondary" href="history.html">
+            GAME HISTORY
+        </a>
+
+        <a class="button secondary" href="help.html">
+            HELP
+        </a>
+    </div>
+
+    <div class="card" id="game">
+        <h2>Game Center</h2>
+
+        <p>
+            Real Bingo gameplay is under development.
+        </p>
+
+        <p>
+            Room joining and multiplayer gameplay will be connected here.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Telegram Account</h2>
+
+        <p id="player-name">Connecting to Telegram...</p>
+
+        <div class="status" id="connection-status">
+            Checking connection...
+        </div>
+    </div>
+
+    <div class="footer">
+        ZIGZAG Multiplayer Bingo
+        <br>
+        Version 2.0
+    </div>
+
 </div>
-
-<div class="card">
-  <h2>My Wallet</h2>
-  <p>ETB Balance: 0.00</p>
-  <p>USD Balance: 0.00</p>
-  <button class="gold" onclick="location.href='wallet.html'">
-    OPEN MY WALLET
-  </button>
-  <p>Demonstration balances only.</p>
-</div>
-
-<div class="card">
-  <h3>Other Features</h3>
-<button class="dark" onclick="location.href='profile.html'">My Profile</button> 
-  <button class="dark" onclick="location.href='leaderboard.html'">Leaderboard</button>
-  <button class="dark" onclick="location.href='history.html'">Game History</button>
-  <button class="dark" onclick="location.href='help.html'">Help & Support</button>
-</div>
-
-<p style="text-align:center">ZIGZAG Multiplayer Bingo</p>
-
-</div>
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
 
 <script>
     const tg = window.Telegram.WebApp;
@@ -81,15 +169,31 @@ p { color: #bdc9d8; }
     tg.ready();
     tg.expand();
 
+    const statusBox = document.getElementById("connection-status");
+    const playerName = document.getElementById("player-name");
+
     async function connectTelegramPlayer() {
+
+        if (!tg.initData) {
+            statusBox.textContent =
+                "Please open ZIGZAG through the Telegram bot menu.";
+
+            playerName.textContent = "Telegram account not detected.";
+            return;
+        }
+
+        statusBox.textContent = "Connecting to ZIGZAG server...";
+
         try {
             const response = await fetch(
                 "https://zigzag-miniapp-production.up.railway.app/api/me",
                 {
                     method: "POST",
+
                     headers: {
                         "Content-Type": "application/json"
                     },
+
                     body: JSON.stringify({
                         initData: tg.initData
                     })
@@ -98,19 +202,39 @@ p { color: #bdc9d8; }
 
             const result = await response.json();
 
-            if (result.verified) {
+            if (response.ok && result.verified) {
+
+                playerName.textContent =
+                    "Welcome, " + result.player.first_name;
+
+                statusBox.textContent =
+                    "Telegram account successfully verified.";
+
                 console.log("Verified Telegram player:", result.player);
+
             } else {
-                console.log("Telegram verification failed");
+
+                playerName.textContent = "Account verification unsuccessful.";
+
+                statusBox.textContent =
+                    result.error || "Telegram verification failed.";
+
+                console.error("Verification failed:", result.error);
             }
+
         } catch (error) {
+
+            playerName.textContent = "Server connection failed.";
+
+            statusBox.textContent =
+                "Could not connect to the ZIGZAG server.";
+
             console.error("Connection error:", error);
         }
     }
 
-    if (tg.initData) {
-        connectTelegramPlayer();
-    }
+    connectTelegramPlayer();
 </script>
+
 </body>
 </html>
